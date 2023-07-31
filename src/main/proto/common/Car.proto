@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package common; // this proto is under common package
+
+// This option extract Person class out of the PersonOuterClass generated in target folder
+// without it, everything is bundled in one big Java class
+option java_multiple_files = true;
+
+// This gives you the ability to structure generated Java class under package
+option java_package = "com.grpcdemo.models";
+
+message Car {
+  string make = 1;
+  string model = 2;
+  int32 year = 3;
+  BodyStyle body_style = 4;
+}
+
+enum BodyStyle {
+  UNKNOWN = 0; // 0 is default value
+  SEDAN = 1;
+  COUPE=2;
+  SUV=3;
+}
+

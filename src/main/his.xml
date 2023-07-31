@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd"
+          xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <mirrors>
+        <mirror>
+            <id>internal-repository</id>
+            <name>Expedia Artifactory</name>
+            <url>https://artylab.expedia.biz/public-maven-virtual/</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+    </mirrors>
+    <profiles>
+        <profile>
+            <id>expedia-central</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <name>Expedia Artifactory</name>
+                    <url>https://artylab.expedia.biz/public-maven-virtual/</url>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <name>Expedia Artifactory</name>
+                    <url>https://artylab.expedia.biz/public-maven-virtual/</url>
+                    <snapshots><enabled>false</enabled></snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>expedia-central</activeProfile>
+    </activeProfiles>
+    <servers>
+        <server>
+            <id>internal-repository</id>
+            <username>USER</username>
+            <password>PASSWORD</password>
+        </server>
+    </servers>
+</settings>

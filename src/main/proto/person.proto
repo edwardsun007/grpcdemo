@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "common/Address.proto";
+import "common/Car.proto";
+
+// This option extract Person class out of the PersonOuterClass generated in target folder
+// without it, everything is bundled in one big Java class
+option java_multiple_files = true;
+
+// This gives you the ability to structure generated Java class under package
+option java_package = "com.grpcdemo.models";
+
+message Person {
+  string name = 1; // primitive type doesn't have has method
+  int32 age = 2;
+  common.Address address = 3; // only customized type Protobuf will create a has method
+  repeated common.Car car = 4;
+}
+
+
